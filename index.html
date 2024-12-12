@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Browser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .browser-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .browser-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background-color: #ffcccb;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .browser-header .tabs {
+            flex: 1;
+            display: flex;
+            gap: 5px;
+        }
+
+        .browser-header .tabs div {
+            background-color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .browser-header .tabs div:hover {
+            background-color: #ffd6d6;
+        }
+
+        .search-bar {
+            flex: 2;
+            margin-left: 10px;
+            display: flex;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            margin-left: 5px;
+            background-color: #ff7878;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #ff4c4c;
+        }
+
+        .browser-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cat-icon {
+            max-width: 200px;
+            margin: 20px auto;
+        }
+
+        .cat-icon img {
+            width: 100%;
+            border-radius: 50%;
+            border: 5px solid #ffd6d6;
+        }
+    </style>
+</head>
+<body>
+    <div class="browser-container">
+        <div class="browser-header">
+            <div class="tabs">
+                <div>Home</div>
+                <div>About</div>
+                <div>Contact</div>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search the web...">
+                <button>Go</button>
+            </div>
+        </div>
+        <div class="browser-content">
+            <div class="cat-icon">
+                <img src="/path/to/cat-browser-icon.png" alt="Cat Browser Icon">
+            </div>
+            <p>Welcome to the Cat Browser! A playful and friendly way to surf the web.</p>
+        </div>
+    </div>
+</body>
+</html>
