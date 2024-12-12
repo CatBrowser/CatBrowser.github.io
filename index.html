@@ -111,27 +111,41 @@
                 <div>Contact</div>
             </div>
             <div class="search-bar">
-                <input type="text" placeholder="Search the web...">
-                <button onclick="search()">Go</button>
+                <input id="searchInput" type="text" placeholder="Enter URL or search the web...">
+                <button onclick="navigate()">Go</button>
             </div>
         </div>
         <div class="browser-content">
             <div class="cat-icon">
-                <img src="/icon.png" alt="Cat Browser Icon">
+                <img src="icon.png" alt="Cat Browser Icon">
             </div>
-            <p>Welcome to the Cat Browser! A playful and friendly way to surf the web.</p>
+            <p>Welcome to the Cat Browser! :P</p>
         </div>
     </div>
 
     <script>
-        function search() {
-            const query = document.querySelector('.search-bar input').value;
-            if (query) {
-                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+        function navigate() {
+            const input = document.getElementById('searchInput').value.trim();
+            if (input) {
+                if (isValidURL(input)) {
+                    window.location.href = input.startsWith('http') ? input : `https://${input}`;
+                } else {
+                    window.open(`https://www.google.com/search?q=${encodeURIComponent(input)}`, '_blank');
+                }
             } else {
-                alert('Please enter a search query.');
+                alert('Please enter a URL or search query.');
+            }
+        }
+
+        function isValidURL(string) {
+            try {
+                new URL(string.startsWith('http') ? string : `https://${string}`);
+                return true;
+            } catch (_) {
+                return false;
             }
         }
     </script>
 </body>
 </html>
+
