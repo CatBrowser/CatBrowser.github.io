@@ -86,21 +86,19 @@
 
         .cat-icon {
             max-width: 200px;
-            max-height: 200px;
             margin: 20px auto;
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: inline-block;
             border-radius: 50%;
             border: 5px solid #ffd6d6;
             overflow: hidden;
-            background-color: #fff;
         }
 
         .cat-icon img {
-            width: auto;
+            width: 100%;
             height: 100%;
+            object-fit: cover;
+            display: block;
         }
     </style>
 </head>
@@ -132,7 +130,7 @@
                 if (isValidURL(input)) {
                     window.location.href = input.startsWith('http') ? input : `https://${input}`;
                 } else {
-                    window.location.href = `https://www.google.com/search?q=${encodeURIComponent(input)}`;
+                    window.open(`https://www.google.com/search?q=${encodeURIComponent(input)}`, '_blank');
                 }
             } else {
                 alert('Please enter a URL or search query.');
@@ -140,12 +138,8 @@
         }
 
         function isValidURL(string) {
-            try {
-                new URL(string.startsWith('http') ? string : `https://${string}`);
-                return true;
-            } catch (_) {
-                return false;
-            }
+            const pattern = /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})([\/\w .-]*)*\/?$/i;
+            return pattern.test(string);
         }
     </script>
 </body>
