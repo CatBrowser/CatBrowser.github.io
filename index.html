@@ -86,19 +86,21 @@
 
         .cat-icon {
             max-width: 200px;
+            max-height: 200px;
             margin: 20px auto;
             position: relative;
-            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 50%;
             border: 5px solid #ffd6d6;
             overflow: hidden;
+            background-color: #fff;
         }
 
         .cat-icon img {
-            width: 100%;
+            width: auto;
             height: 100%;
-            object-fit: cover;
-            display: block;
         }
     </style>
 </head>
@@ -119,7 +121,7 @@
             <div class="cat-icon">
                 <img src="icon.png" alt="Cat Browser Icon">
             </div>
-            <p>Welcome to the Cat Browser! :P</p>
+            <p>Welcome to the Cat Browser! A playful and friendly way to surf the web.</p>
         </div>
     </div>
 
@@ -130,7 +132,7 @@
                 if (isValidURL(input)) {
                     window.location.href = input.startsWith('http') ? input : `https://${input}`;
                 } else {
-                    window.open(`https://www.google.com/search?q=${encodeURIComponent(input)}`, '_blank');
+                    window.location.href = `https://www.google.com/search?q=${encodeURIComponent(input)}`;
                 }
             } else {
                 alert('Please enter a URL or search query.');
